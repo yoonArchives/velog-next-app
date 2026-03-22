@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { Noto_Sans_KR, Nanum_Gothic_Coding } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/providers/theme-provider";
 import Nav from "@/components/layout/nav";
 import Sidebar from "@/components/layout/sidebar";
 
@@ -27,28 +28,35 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko">
+    <html lang="ko" suppressHydrationWarning>
       <body
         className={`${notoSansKR.variable} ${nanumGothicCoding.variable} antialiased`}
       >
-        <div className="relative min-h-dvh">
-          <header className="bg-background sticky top-0 z-1 h-(--header-height) shadow-xs">
-            <Nav />
-          </header>
-          <div className="flex min-h-[calc(100svh-var(--header-height))]">
-            <Sidebar />
-            <div className="flex flex-1 flex-col">
-              <main className="relative flex-1">
-                <div className="mx-auto max-w-5xl px-4 pt-8 pb-40">
-                  {children}
-                </div>
-              </main>
-              <footer className="bg-background flex h-(--footer-height) w-full items-center justify-end px-3 text-sm font-medium">
-                © 2026 yoonArchives. All rights reserved.
-              </footer>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="relative min-h-dvh">
+            <header className="bg-background sticky top-0 z-1 h-(--header-height) shadow-xs">
+              <Nav />
+            </header>
+            <div className="flex min-h-[calc(100svh-var(--header-height))]">
+              <Sidebar />
+              <div className="flex flex-1 flex-col">
+                <main className="relative flex-1">
+                  <div className="mx-auto max-w-5xl px-4 pt-8 pb-40">
+                    {children}
+                  </div>
+                </main>
+                <footer className="bg-background flex h-(--footer-height) w-full items-center justify-end px-3 text-sm font-medium">
+                  © 2026 yoonArchives. All rights reserved.
+                </footer>
+              </div>
             </div>
           </div>
-        </div>
+        </ThemeProvider>
       </body>
     </html>
   );
