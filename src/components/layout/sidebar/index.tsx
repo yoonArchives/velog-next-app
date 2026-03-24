@@ -50,7 +50,7 @@ const Sidebar = () => {
                         "cursor-pointer": pathname !== item.href,
                       })}
                     >
-                      link
+                      {item.label}
                     </Link>
                   </li>
                 ))}

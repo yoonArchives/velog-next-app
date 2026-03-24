@@ -1,7 +1,7 @@
 type SidebarConfig = {
   category: string;
   items: {
-    name: string;
+    label: string;
     href: import("next/link").LinkProps["href"];
     target?: HTMLAttributeAnchorTarget;
   }[];

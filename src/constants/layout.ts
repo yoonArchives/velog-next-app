@@ -2,15 +2,15 @@ export const sidebarConfig: SidebarConfig = [
   {
     category: "CATEGORY",
     items: [
-      { name: "link", href: "/" },
-      { name: "link", href: "/a" },
+      { label: "link", href: "/" },
+      { label: "link", href: "/a" },
     ],
   },
   {
     category: "CATEGORY2",
     items: [
-      { name: "link", href: "/b" },
-      { name: "link", href: "/c" },
+      { label: "link", href: "/b" },
+      { label: "link", href: "/c" },
     ],
   },
 ];
