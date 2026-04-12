@@ -46,6 +46,7 @@ const Sidebar = () => {
                     <Link
                       href={item.href}
                       target={item?.target}
+                      onClick={() => setSidebar(false)}
                       className={cn({
                         "cursor-pointer": pathname !== item.href,
                       })}
